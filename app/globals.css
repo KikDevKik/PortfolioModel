@@ -123,7 +123,6 @@ body:has(.cover--hero) .site-header__brand { visibility: hidden; }
 .cover__masthead svg { display: block; width: 100%; height: auto; overflow: visible; }
 .cover__masthead text { font-family: var(--serif); font-weight: 800; font-size: 250px; fill: currentColor; font-variation-settings: 'opsz' 96; }
 
-.cover__surname { position: absolute; right: 4.5cqw; top: calc(var(--cover-top, 0px) + 25.6cqw); font-family: var(--serif); font-style: italic; font-weight: 500; font-size: max(13px, 6cqw); line-height: 1; }
 .cover__meta { position: absolute; left: 4.5cqw; top: calc(var(--cover-top, 0px) + 27cqw); display: flex; flex-wrap: wrap; gap: 0 2.2cqw; font-family: var(--mono); font-size: max(8px, 1.65cqw); font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; }
 .cover__kicker { position: absolute; left: 4.5cqw; top: 47%; max-width: 27cqw; font-size: max(9px, 2.05cqw); line-height: 1.3; }
 .cover__kicker span { display: block; }
@@ -132,8 +131,11 @@ body:has(.cover--hero) .site-header__brand { visibility: hidden; }
 .cover__line { position: absolute; left: 4.5cqw; bottom: 5cqw; max-width: 64cqw; font-weight: 400; }
 .cover__line strong { display: block; font-family: var(--display); font-weight: 400; font-size: max(26px, 12.5cqw); line-height: 0.86; text-transform: uppercase; color: var(--accent); letter-spacing: 0.005em; }
 .cover__line em { display: block; margin-top: 1.4cqw; font-family: var(--serif); font-style: italic; font-size: max(12px, 4.2cqw); line-height: 1.1; }
-.cover__barcode { position: absolute; right: 4.5cqw; bottom: 5cqw; width: 18cqw; padding: 1.3cqw 1.4cqw 0.9cqw; background: #fff; color: #0b0b0b; text-shadow: none; }
+.cover__barcode { position: absolute; right: 4.5cqw; bottom: 5cqw; width: max-content; min-width: 18cqw; padding: 1.3cqw 1.4cqw 0.9cqw; background: #fff; color: #0b0b0b; text-shadow: none; }
 .cover__barcode .barcode { font-size: max(6px, 1.25cqw); }
+.cover__barcode--link { display: block; pointer-events: auto; transition: transform 0.25s ease; }
+.cover__barcode--link:hover { transform: translateY(-3px); }
+.cover__barcode-label { display: block; margin-bottom: 0.7cqw; font-family: var(--mono); font-size: max(7px, 1.35cqw); font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; }
 
 @container (max-width: 340px) {
   .cover__kicker, .cover__barcode { display: none; }

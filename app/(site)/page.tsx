@@ -22,15 +22,13 @@ export default async function Home() {
           name={settings.name}
           image={hc.image}
           cutout={hc.cutout}
-          issueLabel={hc.issueLabel}
-          date={hc.date}
-          place="Medellín"
           kicker={hc.kicker}
           coverLine={hc.coverLine}
           counterLine={hc.counterLine}
           accent={hc.accent}
           tone={hc.tone}
           barcode={settings.measurements.barcode}
+          barcodeHref="/digitals"
           priority
           sizes="(max-width: 900px) 100vw, 75vh"
           className="cover--hero"

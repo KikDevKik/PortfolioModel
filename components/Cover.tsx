@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import Img from './Img';
 import Barcode from './Barcode';
 
@@ -5,7 +6,7 @@ export type CoverProps = {
   name: string; // professional name, e.g. "Deiner Trelles"
   image?: string;
   cutout?: string;
-  issueLabel: string;
+  issueLabel?: string;
   date?: string;
   place?: string;
   kicker?: string;
@@ -14,6 +15,7 @@ export type CoverProps = {
   accent: string;
   tone: 'dark' | 'light';
   barcode?: string;
+  barcodeHref?: string;
   priority?: boolean;
   sizes?: string;
   className?: string;
@@ -27,8 +29,8 @@ export type CoverProps = {
   4. issue details, side text, cover line, barcode
 */
 export default function Cover(p: CoverProps) {
-  const [first, ...rest] = p.name.trim().split(/\s+/);
-  const surname = rest.join(' ');
+  const first = p.name.trim().split(/\s+/)[0];
+  const meta = [p.issueLabel, p.date, p.place].filter(Boolean);
   const hasImage = Boolean(p.image);
 
   return (
@@ -55,12 +57,13 @@ export default function Cover(p: CoverProps) {
       {p.cutout ? <Img id={p.cutout} alt="" className="cover__cut" priority={p.priority} sizes={p.sizes} /> : null}
 
       <div className="cover__overlay">
-        {surname ? <p className="cover__surname">{surname}</p> : null}
-        <p className="cover__meta">
-          <span>{p.issueLabel}</span>
-          {p.date ? <span>{p.date}</span> : null}
-          {p.place ? <span>{p.place}</span> : null}
-        </p>
+        {meta.length ? (
+          <p className="cover__meta">
+            {meta.map((m) => (
+              <span key={m}>{m}</span>
+            ))}
+          </p>
+        ) : null}
         {p.kicker ? (
           <p className="cover__kicker">
             {p.kicker.split('\n').map((line, i) => (
@@ -75,9 +78,16 @@ export default function Cover(p: CoverProps) {
           </h2>
         ) : null}
         {p.barcode ? (
-          <div className="cover__barcode">
-            <Barcode value={p.barcode} />
-          </div>
+          p.barcodeHref ? (
+            <Link href={p.barcodeHref} className="cover__barcode cover__barcode--link" aria-label="Sizes — digitals and measurements">
+              <span className="cover__barcode-label">Sizes →</span>
+              <Barcode value={p.barcode} />
+            </Link>
+          ) : (
+            <div className="cover__barcode">
+              <Barcode value={p.barcode} />
+            </div>
+          )
         ) : null}
       </div>
     </div>
