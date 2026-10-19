@@ -18,7 +18,7 @@ measurements:
   inseam: ''
   shoes: EU 43 / US 10
   eyes: Brown
-  hair: Black & white
+  hair: Black
   languages: Spanish (native), English
   updated: October 2026
   barcode: 188 · 92 · 74 · 88 · 43
@@ -36,9 +36,9 @@ agencies:
     name: Row MGMT
     city: Colombia
     contactName: ''
-    email: ''
+    email: hello@rowmgmt.com
     phone: ''
-    instagram: ''
+    instagram: rowmgmt
 contact:
   email: dei.trellez@gmail.com
   instagram: dei.trelles
