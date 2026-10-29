@@ -40,7 +40,7 @@ export default async function Home() {
 
       {/* 2 — Contents as its own page on phones */}
       <section className="page page--flow mobile-only" aria-label="Contents">
-        <Contents projects={projects} issueLabel={hc.issueLabel} />
+        <Contents projects={projects} issueLabel={hc.issueLabel} preview={false} />
       </section>
 
       {/* 3 — Cine Vivo supplement (only once a scene is published) */}
