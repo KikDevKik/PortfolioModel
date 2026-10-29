@@ -8,7 +8,7 @@ export const revalidate = 300;
 
 export default async function DigitalsPage() {
   const settings = await getSettings();
-  const digitals = await listFolder(settings.digitalsFolder, 4);
+  const digitals = await listFolder(settings.digitalsFolder, 6);
   return (
     <section className="page page--flow page--first">
       <Facts settings={settings} digitals={digitals} />

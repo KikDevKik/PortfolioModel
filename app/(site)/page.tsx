@@ -11,7 +11,7 @@ export const revalidate = 300;
 
 export default async function Home() {
   const [settings, projects, scenes] = await Promise.all([getSettings(), getProjects(), getScenes()]);
-  const digitals = await listFolder(settings.digitalsFolder, 4);
+  const digitals = await listFolder(settings.digitalsFolder, 6);
   const hc = settings.homeCover;
 
   return (

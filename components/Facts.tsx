@@ -29,7 +29,7 @@ export default function Facts({ settings, digitals }: { settings: Settings; digi
 
       <div className="facts__body">
         <div className="facts__grid">
-          {digitals.slice(0, 4).map((d, i) => (
+          {digitals.slice(0, 8).map((d, i) => (
             <figure key={d.id}>
               <Img id={d.id} alt={`${settings.name} — digital ${i + 1}`} sizes="(max-width: 900px) 50vw, 25vw" />
             </figure>
