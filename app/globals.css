@@ -188,12 +188,13 @@ body:has(.cover--hero) .site-header__brand { visibility: hidden; }
 .spread--single figure { width: 50%; }
 .spread--single.spread--left { justify-content: flex-start; }
 .spread--single.spread--right { justify-content: flex-end; }
-.spread--full, .spread--video { padding: 0; }
-.spread__bleed, .spread--video video { width: 100%; height: 100%; object-fit: cover; }
+.spread--full, .spread--video { padding: calc(var(--header) + 8px) var(--gutter) 44px; }
+/* never crop a model photo: whole image, as large as the page allows */
+.spread__bleed, .spread--video video { width: 100%; height: 100%; object-fit: contain; }
 .spread--video { background: #000; }
 .folio { position: absolute; left: var(--gutter); right: var(--gutter); bottom: 18px; display: flex; justify-content: space-between; gap: 16px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
 .folio span:first-child { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.spread--full .folio, .spread--video .folio { color: #fff; mix-blend-mode: difference; }
+.spread--video .folio { color: #fff; mix-blend-mode: difference; }
 
 @media (max-width: 760px) {
   .spread--pair { padding-left: 0; padding-right: 0; }
