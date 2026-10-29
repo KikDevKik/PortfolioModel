@@ -1,7 +1,7 @@
 name: Deiner Trelles
 description: Afro-Colombian model, 188 cm, based in Medellín. Represented by Saulo Dellano Mgt (mother agency) and Row MGMT (Colombia).
 homeCover:
-  image: ''
+  image: home_cover
   cutout: ''
   issueLabel: Nº 01
   date: October 2026
@@ -9,7 +9,7 @@ homeCover:
   coverLine: New Face
   counterLine: ''
   accent: '#c9a24a'
-  tone: dark
+  tone: light
 measurements:
   height: 188 cm / 6'2"
   chest: 92 cm / 36"

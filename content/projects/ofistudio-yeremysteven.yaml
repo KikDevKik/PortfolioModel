@@ -7,12 +7,12 @@ location: ''
 client: OFISTUDIO
 folder: portfolio/work/2026_ofistudio-yeremysteven
 cover:
-  image: ''
+  image: ofistudio-yeremysteven_cover
   cutout: ''
   coverLine: OFISTUDIO
   counterLine: ''
   accent: '#6f8f4e'
-  tone: light
+  tone: dark
 intro: ''
 publication:
   name: ''

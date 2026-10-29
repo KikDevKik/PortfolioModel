@@ -7,12 +7,12 @@ location: ''
 client: Saint Theory
 folder: portfolio/work/2026_saint-theory
 cover:
-  image: ''
+  image: saint-theory_cover
   cutout: ''
   coverLine: Saint Theory
   counterLine: ''
-  accent: '#9a9a9a'
-  tone: light
+  accent: '#3a8dde'
+  tone: dark
 intro: ''
 publication:
   name: ''
