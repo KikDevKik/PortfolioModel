@@ -285,11 +285,44 @@ body:has(.cover--hero) .site-header__brand { visibility: hidden; }
 /* ---------- Masthead (representation) ---------- */
 .page--masthead { display: flex; flex-direction: column; justify-content: space-between; }
 .masthead { display: flex; flex-direction: column; gap: clamp(32px, 6vh, 64px); }
-.masthead__cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px clamp(24px, 4vw, 56px); border-top: 1px solid var(--ink); padding-top: 28px; }
-.masthead__col { display: flex; flex-direction: column; gap: 6px; }
-.masthead__col h3 { font-family: var(--serif); font-weight: 500; font-size: 30px; line-height: 1.05; margin: 8px 0 6px; }
-.masthead__col a { width: fit-content; border-bottom: 1px solid transparent; }
-.masthead__col a:hover { border-color: currentColor; }
+.masthead__cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: clamp(14px, 1.6vw, 22px); border-top: 1px solid var(--ink); padding-top: 28px; }
+.masthead__col { position: relative; overflow: hidden; isolation: isolate; min-height: 300px; display: flex; flex-direction: column; justify-content: flex-end; padding: clamp(20px, 2.2vw, 30px); border: 1px solid var(--line); background: color-mix(in srgb, var(--paper) 92%, var(--ink)); transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s ease; }
+.masthead__col:hover, .masthead__col:focus-within { transform: translateY(-4px); box-shadow: 0 24px 40px -24px rgba(0, 0, 0, 0.45); }
+.masthead__body { position: relative; z-index: 2; display: flex; flex-direction: column; gap: 6px; }
+.masthead__col h3 { font-family: var(--serif); font-weight: 500; font-size: 32px; line-height: 1.05; margin: 8px 0 4px; }
+.masthead__city { color: var(--muted); }
+.masthead__col a { width: fit-content; border-bottom: 1px solid transparent; transition: border-color 0.2s ease; }
+.masthead__col a:hover, .masthead__col a:focus-visible { border-color: currentColor; }
+
+/* flag cards: the flag fills the card, a dark wash keeps the type readable */
+.masthead__flag { position: absolute; inset: 0; z-index: 0; }
+.masthead__flag .flag { width: 100%; height: 100%; display: block; transform: scale(1.04); transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); }
+.masthead__col--flag::after { content: ''; position: absolute; inset: 0; z-index: 1; background: linear-gradient(to top, rgba(8, 8, 8, 0.92) 0%, rgba(8, 8, 8, 0.72) 45%, rgba(8, 8, 8, 0.28) 100%); transition: opacity 0.35s ease; }
+.masthead__col--flag { border-color: transparent; color: #f5f3ee; }
+.masthead__col--flag .masthead__city { color: rgba(245, 243, 238, 0.7); }
+.masthead__col--flag:hover .flag, .masthead__col--flag:focus-within .flag { transform: scale(1.1); }
+.masthead__col--flag:hover::after, .masthead__col--flag:focus-within::after { opacity: 0.88; }
+
+/* his own card: ink with a gold edge */
+.masthead__col--own { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.masthead__col--own::before { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 6px; background: var(--gold, #c9a24a); }
+.masthead__col--own .label { color: #c9a24a; }
+
+/* interface sound toggle */
+.sfx-toggle { position: fixed; right: max(14px, env(safe-area-inset-right)); bottom: max(14px, env(safe-area-inset-bottom)); z-index: 150; display: inline-flex; align-items: center; gap: 10px; height: 40px; padding: 0 14px; border: 1px solid rgba(255, 255, 255, 0.25); border-radius: 999px; background: rgba(11, 11, 11, 0.72); color: #f5f3ee; backdrop-filter: blur(8px); font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; cursor: pointer; touch-action: manipulation; transition: background-color 0.2s ease, transform 0.2s ease; }
+.sfx-toggle:hover { background: rgba(11, 11, 11, 0.9); transform: translateY(-1px); }
+.sfx-toggle:focus-visible { outline: 2px solid #c9a24a; outline-offset: 3px; }
+.sfx-toggle__bars { display: inline-flex; align-items: flex-end; gap: 2px; height: 12px; }
+.sfx-toggle__bars i { display: block; width: 2px; height: 3px; background: currentColor; }
+.sfx-toggle.is-on .sfx-toggle__bars i { animation: sfx-eq 1s ease-in-out infinite; }
+.sfx-toggle.is-on .sfx-toggle__bars i:nth-child(2) { animation-delay: -0.3s; }
+.sfx-toggle.is-on .sfx-toggle__bars i:nth-child(3) { animation-delay: -0.55s; }
+.sfx-toggle.is-on .sfx-toggle__bars i:nth-child(4) { animation-delay: -0.8s; }
+@keyframes sfx-eq { 0%, 100% { transform: scaleY(1); } 50% { transform: scaleY(4); } }
+.sfx-toggle__bars i { transform-origin: bottom; }
+@media (max-width: 560px) { .sfx-toggle__label { display: none; } .sfx-toggle { width: 40px; padding: 0; justify-content: center; } }
+@media (prefers-reduced-motion: reduce) { .sfx-toggle.is-on .sfx-toggle__bars i { animation: none; transform: scaleY(2.5); } .masthead__col, .masthead__flag .flag { transition: none; } }
+
 .masthead__note { font-family: var(--serif); font-style: italic; font-size: 20px; color: var(--muted); }
 
 /* ---------- Cine Vivo supplement ---------- */

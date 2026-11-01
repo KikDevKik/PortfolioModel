@@ -1,4 +1,5 @@
 import SiteHeader, { type NavItem } from '@/components/SiteHeader';
+import SoundFX from '@/components/SoundFX';
 import { getScenes, getSettings } from '@/lib/content';
 
 export default async function SiteLayout({ children }: { children: React.ReactNode }) {
@@ -20,6 +21,7 @@ export default async function SiteLayout({ children }: { children: React.ReactNo
       </a>
       <SiteHeader name={settings.name} items={items} />
       <main id="main">{children}</main>
+      <SoundFX />
     </>
   );
 }

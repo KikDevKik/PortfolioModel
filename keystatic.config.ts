@@ -124,6 +124,19 @@ export default config({
             email: fields.text({ label: 'Email' }),
             phone: fields.text({ label: 'Phone' }),
             instagram: fields.text({ label: 'Instagram handle (without @)' }),
+            flag: fields.select({
+              label: 'Flag (card background)',
+              options: [
+                { label: 'None', value: 'none' },
+                { label: 'Brazil', value: 'br' },
+                { label: 'Colombia', value: 'co' },
+                { label: 'Japan', value: 'jp' },
+                { label: 'France', value: 'fr' },
+                { label: 'Italy', value: 'it' },
+                { label: 'Germany', value: 'de' },
+              ],
+              defaultValue: 'none',
+            }),
           }),
           { label: 'Representation', itemLabel: (p) => `${p.fields.label.value} — ${p.fields.name.value}` }
         ),

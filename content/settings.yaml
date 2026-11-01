@@ -32,6 +32,7 @@ agencies:
     email: saulodellanos@gmail.com
     phone: +55 11 98604-0806
     instagram: saulodellanomgt
+    flag: br
   - label: Colombia
     name: Row MGMT
     city: Colombia
@@ -39,6 +40,7 @@ agencies:
     email: hello@rowmgmt.com
     phone: ''
     instagram: rowmgmt
+    flag: co
 contact:
   email: dei.trellez@gmail.com
   instagram: dei.trelles
