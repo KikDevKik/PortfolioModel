@@ -320,7 +320,8 @@ body:has(.cover--hero) .site-header__brand { visibility: hidden; }
 .sfx-toggle.is-on .sfx-toggle__bars i:nth-child(4) { animation-delay: -0.8s; }
 @keyframes sfx-eq { 0%, 100% { transform: scaleY(1); } 50% { transform: scaleY(4); } }
 .sfx-toggle__bars i { transform-origin: bottom; }
-@media (max-width: 560px) { .sfx-toggle__label { display: none; } .sfx-toggle { width: 40px; padding: 0; justify-content: center; } }
+/* phones: the toggle moves up next to MENU so it never covers the cover line or barcode */
+@media (max-width: 760px) { .sfx-toggle__label { display: none; } .sfx-toggle { top: max(15px, env(safe-area-inset-top)); bottom: auto; right: 96px; width: 34px; height: 34px; padding: 0; justify-content: center; z-index: 215; } }
 @media (prefers-reduced-motion: reduce) { .sfx-toggle.is-on .sfx-toggle__bars i { animation: none; transform: scaleY(2.5); } .masthead__col, .masthead__flag .flag { transition: none; } }
 
 .masthead__note { font-family: var(--serif); font-style: italic; font-size: 20px; color: var(--muted); }
